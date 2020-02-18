@@ -1,0 +1,56 @@
+{
+  "name": "dune-rely-demo",
+  "version": "0.1.0",
+  "description": "",
+  "author": "Thibaut Mattio",
+  "license": "MIT",
+  "homepage": "https://github.com/tmattio/dune-rely-demo",
+  "bugs": {
+    "url": "https://github.com/tmattio/dune-rely-demo/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/tmattio/dune-rely-demo.git"
+  },
+  "esy": {
+    "build": "dune build -p #{self.name}",
+    "buildDev": "refmterr dune build -p #{self.name}",
+    "NOTE": "Optional release Section. Customizes result of `esy release`",
+    "release": {
+      "bin": {
+        "dune-rely-demo": "dune-rely-demo.exe"
+      }
+    },
+    "buildEnv": {
+      "ODOC_SYNTAX": "re"
+    }
+  },
+  "peerDependencies": {
+    "ocaml": ">= 4.6.0"
+  },
+  "dependencies": {
+    "@opam/base": "*",
+    "@opam/stdio": "*",
+    "@reason-native/rely": "*",
+    "@opam/reason": "*",
+    "@opam/dune": ">= 1.6.0"
+  },
+  "devDependencies": {
+    "@opam/dune-release": "*",
+    "@opam/merlin": "*",
+    "@opam/odoc": "*",
+    "@opam/utop": "*",
+    "ocaml": "~4.8.1000",
+    "refmterr": "*"
+  },
+  "scripts": {
+    "start": "esy x dune-rely-demo.exe",
+    "test-dune": "esy dune build @test_dune/runtest",
+    "test-exe": "esy x test-runner.exe",
+    "doc": "esy dune build @doc",
+    "doc-path": "esy echo #{self.target_dir}/default/_doc/_html/index.html",
+    "format": "esy dune build @fmt --auto-promote",
+    "watch": "esy dune build -p #{self.name} --watch",
+    "utop": "esy dune utop lib -- -implicit-bindings"
+  }
+}

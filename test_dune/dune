@@ -1,0 +1,19 @@
+(library
+ (name Dune_rely_demo_test_dune)
+ (public_name dune-rely-demo.test-dune)
+ (flags -open Base -linkall -g -w -9)
+ ; Make the library optional to skip building test on Opam
+ ; (optional)
+ (libraries base rely.lib dune-rely-demo.lib)
+ (modules
+  (:standard \ test_runner)))
+
+(test
+ (name test_runner)
+ (modules test_runner)
+ (libraries base dune-rely-demo.test-dune)
+ (flags -open Base)
+ (action
+  (run %{test} -q --color=always)))
+
+(include_subdirs unqualified)

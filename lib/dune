@@ -1,0 +1,8 @@
+(library
+ (name Dune_rely_demo)
+ (public_name dune-rely-demo.lib)
+ (modules (:standard))
+ (libraries base)
+ (flags -open Base))
+
+(include_subdirs unqualified)

@@ -1,0 +1,8 @@
+(executable
+ (name dune_rely_demo_app)
+ (modules (:standard))
+ (public_name dune_rely_demo_app.exe)
+ (libraries base stdio dune-rely-demo.lib)
+ (flags -open Base))
+
+(include_subdirs unqualified)
