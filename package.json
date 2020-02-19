@@ -45,7 +45,7 @@
   },
   "scripts": {
     "start": "esy x dune-rely-demo.exe",
-    "test-dune": "esy dune build @test_dune/runtest",
+    "test-dune": "esy dune build @test_dune/runtest --no-buffer",
     "test-exe": "esy x test-runner.exe",
     "doc": "esy dune build @doc",
     "doc-path": "esy echo #{self.target_dir}/default/_doc/_html/index.html",
